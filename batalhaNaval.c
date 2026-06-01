@@ -29,6 +29,14 @@ int main() {
         printf("Para letra H, digite 7\n");
         printf("Para letra I, digite 8\n");
         printf("Para letra J, digite 9\n");
+        
+
+printf("\n\n");
+
+    printf("Tabuleiro Batalha Naval\n"); 
+
+    printf("\n");
+
 
          //Navio vertical
         tabuleiro [2][4] = 3;
@@ -40,14 +48,37 @@ int main() {
         tabuleiro [7][2] = 3;
         tabuleiro [7][3] = 3;
 
-          //Mostrar tabuleiro
-        for(int i = 0; i < 10; i++){
-            for (int j = 0; j < 10; j++) {
-                printf("%d ", tabuleiro [i][j]);
-            }
-          printf("\n");
+        // Navio diagonal
+        tabuleiro [1][4] = 3;
+        tabuleiro [2][3] = 3;
+        tabuleiro [3][2] = 3;
 
+        tabuleiro [9][9] = 3;
+        tabuleiro [8][8] = 3; 
+        tabuleiro [7][7] = 3;
+
+
+       // Cabeçalho com letras
+    printf("   ");
+
+    for (int i = 0; i < 10; i++) {
+        printf("%c ", linha[i]);
+    }
+
+    printf("\n");
+
+          //Mostrar tabuleiro
+        for (int i = 0; i < 10; i++) {
+
+        printf("%d  ", i);
+
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
         }
+
+        printf("\n");
+    }
+
 
 
     
