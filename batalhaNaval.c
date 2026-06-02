@@ -6,7 +6,6 @@
 
 int main() {
 
-    
     char linha[10] = {'A','B','C','D','E','F','G','H','I','J'};
     int tabuleiro [10][10];
 
@@ -31,7 +30,7 @@ int main() {
         printf("Para letra J, digite 9\n");
         
 
-printf("\n\n");
+    printf("\n\n");
 
     printf("Tabuleiro Batalha Naval\n"); 
 
@@ -39,9 +38,9 @@ printf("\n\n");
 
 
          //Navio vertical
-        tabuleiro [2][4] = 3;
-        tabuleiro [3][4] = 3;
-        tabuleiro [4][4] = 3;
+        tabuleiro [2][0] = 3;
+        tabuleiro [3][0] = 3;
+        tabuleiro [4][0] = 3;
 
           //Navio horizontal
         tabuleiro [7][1] = 3;
@@ -49,26 +48,146 @@ printf("\n\n");
         tabuleiro [7][3] = 3;
 
         // Navio diagonal
-        tabuleiro [1][4] = 3;
+        tabuleiro [0][1] = 3;
+        tabuleiro [1][2] = 3;
         tabuleiro [2][3] = 3;
-        tabuleiro [3][2] = 3;
 
         tabuleiro [9][9] = 3;
         tabuleiro [8][8] = 3; 
         tabuleiro [7][7] = 3;
 
 
+        int cruz[5][5];
+         
+
+        for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                if(i == 2 || j == 2)
+                {
+                cruz[i][j] = 5;
+            } 
+            else 
+            {
+                cruz[i][j] = 0;
+            }
+
+        }
+
+    }
+
+         
+        int origemLinhaCruz = 2;
+        int origemColunaCruz = 2;
+
+            for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+        {
+            if(cruz[i][j] == 5)
+        {
+            int linhaTab = origemLinhaCruz + i - 2;
+            int colunaTab = origemColunaCruz + j - 2;
+
+            if(linhaTab >= 0 && linhaTab < 10 &&
+               colunaTab >= 0 && colunaTab < 10)
+            {
+                tabuleiro[linhaTab][colunaTab] = 5;
+            }
+        }
+    }
+}
+          
+          int cone[5][5];
+
+            for(int i = 0; i < 5; i++)
+{
+            for(int j = 0; j < 5; j++)
+    {
+            if((i == 0 && j == 2) ||
+           (i == 1 && j >= 1 && j <= 3) ||
+           (i == 2))
+        {
+            cone[i][j] = 5;
+            }
+            else
+            {
+            cone[i][j] = 0;
+        }
+    }  
+}
+           int origemLinhaCone = 2;
+           int origemColunaCone = 8;
+
+             for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+        {
+            if(cone[i][j] == 5)
+        {
+            int linhaTab = origemLinhaCone + i - 2;
+            int colunaTab = origemColunaCone + j - 2;
+
+            if(linhaTab >= 0 && linhaTab < 10 &&
+               colunaTab >= 0 && colunaTab < 10)
+            {
+                tabuleiro[linhaTab][colunaTab] = 5;
+            }
+        }
+    }
+}
+
+
+           int octaedro[5][5];
+
+             for(int i = 0; i < 5; i++)
+{
+             for(int j = 0; j < 5; j++)
+    {
+             if(abs(i - 2) + abs(j - 2) <= 2)
+        {
+              octaedro[i][j] = 5;
+             }
+             else
+             {
+              octaedro[i][j] = 0;
+        }
+    }
+} 
+
+           int origemLinhaOcatedro = 7;
+           int origemColunaOctaedro = 5;
+
+               for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+        {
+            if(octaedro[i][j] == 5)
+        {
+            int linhaTab = origemLinhaOcatedro + i - 2;
+            int colunaTab = origemColunaOctaedro + j - 2;
+
+            if(linhaTab >= 0 && linhaTab < 10 &&
+               colunaTab >= 0 && colunaTab < 10)
+            {
+                tabuleiro[linhaTab][colunaTab] = 5;
+            }
+        }
+    }
+}
+
        // Cabeçalho com letras
     printf("   ");
 
-    for (int i = 0; i < 10; i++) {
+    for(int i = 0; i < 10; i++) {
         printf("%c ", linha[i]);
     }
 
     printf("\n");
 
           //Mostrar tabuleiro
-        for (int i = 0; i < 10; i++) {
+        for(int i = 0; i < 10; i++) {
 
         printf("%d  ", i);
 
